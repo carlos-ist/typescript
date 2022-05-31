@@ -1,19 +1,19 @@
-// string
+// string --------------
 let nome: string = "João"
 console.log(nome)
 
-// numbers
+// numbers --------------
 let idade: number = 27
 
 //idade = 'ana'
 console.log(idade)
 
-// boolean
+// boolean --------------
 let possuiHobbies: boolean = false
 //possuiHobbies = 1
 console.log(possuiHobbies)
 
-// array
+// array --------------
 let hobbies: any[] = ['cozinhar','praticar esportes']
 console.log(hobbies[0]);
 console.log(typeof hobbies)
@@ -24,12 +24,12 @@ console.log(hobbies)
 //hobbies = 100
 //console.log(hobbies)
 
-// Tuplas
+// Tuplas --------------
 let endereco: [string,number] = ["av Principal", 99]
 console.log(endereco)
 
 
-// Enum
+// Enum --------------
 enum Cor {
     Cinza, //0
     Verde, //1
@@ -44,7 +44,7 @@ let minhaCor: Cor = Cor.Verde
 console.log(minhaCor)
 
 
-// funções
+// funções --------------
 nome = "josé";
 function retornaMeuNome(): string { //setando retorno
     return nome;
@@ -58,26 +58,31 @@ function digaOi(): void {
 
 digaOi()
 
-// função como tipo de variável
+// função como tipo de variável --------------
 
 function multiplicar(numA: number, numB: number): number {
     return numA * numB;
 }
 
+// let calculo // tipo any
 
-let calculo
+let calculo: (numA: number, numB: number) => number
 
-calculo = digaOi  // função declarada mais acima
+//calculo = digaOi  // função declarada mais acima
 
-console.log(calculo()) //redundância a função diga Oi já chama "console.log" no seu escopo.
-
-calculo()
-
-calculo = multiplicar // função declarada logo acima
+calculo = multiplicar /* função declarada logo acima, a função multiplicar
+ tem a mesma tipagem e retorno declarada em calculo.*/
 
 console.log(calculo(5,6))
 
+// Objetos e tipos --------------
 
+let usuario = {
+    nome: 'joão',
+    idade: 27
+}
+
+//-
 
 
 
