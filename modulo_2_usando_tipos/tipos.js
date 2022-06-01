@@ -58,3 +58,41 @@ let usuario = {
     nome: 'joão',
     idade: 27
 };
+let usuário2 = {
+    nome: "José",
+    idade: 27
+};
+//usuario = {}
+/*
+usuario = {
+    name: 'Maria',
+    age: 32
+}
+*/
+console.log(usuario);
+console.log(usuário2);
+console.log(usuário2.nome);
+// Desafio --------------
+/*
+    Criar um objeto funcionário com:
+        - Array de strings com os nomes dos supervisores
+        - Função de bater ponto que recebe a hora (número)
+        e retorna uma string.
+            -> Ponto normal (<= 8)
+            -> Fora do horário (> 8)
+*/
+let funcionario = {
+    supervisores: ['ana', 'fernando'],
+    baterPonto(horario) {
+        if (horario <= 8) {
+            return "ponto normal";
+        }
+        else {
+            return 'fora do normal';
+        }
+    }
+};
+console.log(funcionario.supervisores);
+console.log(funcionario.baterPonto(8));
+console.log(funcionario.baterPonto(9));
+console.log(funcionario.baterPonto(7));
