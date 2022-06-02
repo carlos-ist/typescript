@@ -165,4 +165,3 @@ console.log(correntista.contaBancaria.saldo);
 correntista.contaBancaria.depositar(104);
 console.log(correntista.contaBancaria.saldo);
 console.log(correntista);
-//# sourceMappingURL=tipos.js.map
