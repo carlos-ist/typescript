@@ -113,7 +113,9 @@ console.log(usuário2.nome)
             -> Fora do horário (> 8)
 */
 
-let funcionario: {
+// Object Literals --------------
+
+let funcionario2: {
     supervisores: string[],
     baterPonto: (horas: number) => string
     } = {
@@ -129,14 +131,125 @@ let funcionario: {
             }
         }
   
-console.log(funcionario.supervisores)
-console.log(funcionario.baterPonto(8))
-console.log(funcionario.baterPonto(9))
-console.log(funcionario.baterPonto(7))
+let funcionario3: {
+    supervisores: string[],
+    baterPonto: (horas: number) => string
+    }
+
+funcionario3 = {
+        
+    supervisores: ['ana', 'fernando'],
+    baterPonto(horario: number): string {
+            if(horario<=8){
+                return "ponto normal"
+            }
+            else {
+                return 'fora do normal'
+            }
+        }
+    }
+
+console.log(funcionario2.supervisores)
+console.log(funcionario2.baterPonto(8))
+console.log()
+console.log(funcionario3)
+console.log(funcionario3.baterPonto(9))
+
+// Criando um tipo funcionário --------------
+
+type funcionario = {
+    supervisores: string[],
+    baterPonto: (horas: number) => string
+}
+
+let funcionario: funcionario = {
+        
+    supervisores: ['Beatriz', 'Fonseca'],
+    baterPonto(horario: number): string {
+            if(horario<=8){
+                return "ponto normal"
+            }
+            else {
+                return 'fora do normal'
+            }
+        }
+    }
+
+    console.log(funcionario)
+    console.log(funcionario.baterPonto(8))
+
+// Union Types --------------
+
+let nota: number | string = 10 // Variável nota suporta tipos tanto number como string
+console.log(`Minha nota é ${nota}`)
+
+nota = '10'
+console.log(`Minha nota é ${nota}`)
+
+// Checagem de tipos --------------
+
+let valor = 30
+
+if (typeof valor === "number") {
+    console.log("É um number")
+} else {
+    console.log(typeof valor)
+}
+
+// Valores opcionais com tipo Null --------------
+
+type Contato = {
+    nome: string,
+    tel1: string,
+    tel2: string | null /*Se um atributo pode ser preenchido ou nulo,
+    o tipo null necessita ser declarado nesse caso como Union Type*/
+}
+
+const contato1: Contato = {
+    nome: 'Fulano',
+    tel1: '98765432',
+    tel2: null
+}
+
+console.log(contato1)
+console.log(contato1.nome)
+
+/* Contudo, se uma variável for iniciada com tipo Null, por padrão
+ela será tipada com como tipo Any*/
+
+let telefone = null // = any
 
 
+// Desafio --------------
 
+console.log('')
+console.log('Desafio')
+console.log('')
 
+type contaBancaria = {
+	saldo: number,  
+	depositar: (valor:number) => void
+} 
 
+let contaBancaria: contaBancaria = {
+    saldo: 3000,
+    depositar(valor) {
+        this.saldo += valor
+    }
+}
+ 
+let correntista: { 
+	nome: string,
+	contaBancaria: contaBancaria,
+	contatos: string []
+} = {
+    nome: 'Ana Silva',
+    contaBancaria: contaBancaria,
+    contatos: ['34567890', '98765432']
+}
 
+console.log(correntista.contaBancaria.saldo)
+correntista.contaBancaria.depositar(104)
+console.log(correntista.contaBancaria.saldo)
+console.log(correntista)
 
