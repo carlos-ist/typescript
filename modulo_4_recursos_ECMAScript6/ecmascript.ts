@@ -89,3 +89,30 @@ function contagemRegressiva(inicio: number = 5, fim:number = 0): void {
 
 contagemRegressiva()
 contagemRegressiva(3)
+
+// Rest & Spread operator
+const numbers = [1, 10, 99, -5, 200, 1034]
+console.log(Math.max(...numbers)) // Nota: A função Max não recebe um tipo array, com spread os números são passados diretamente na função como se fosse uma sequência de parâmetros.
+
+const turmaA: string[] = ['joão', 'maria', 'fernando']
+//const turmaB: string[] = ['Fernando', 'Miguel', 'Lorena', turmaA] //Aqui está sendo passado uma lista, dentro de uma array de strings
+const turmaC: string[] = ['Fernando', 'Miguel', 'Lorena', ...turmaA]
+
+console.log(turmaC)
+
+function retornarArray(...args:number[]): number[]{
+    return args
+}
+
+const numeros = retornarArray(1,2,3,4,5,6,345,623)
+console.log(numeros)
+console.log(retornarArray(...numbers))
+
+
+
+
+
+
+
+
+
