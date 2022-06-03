@@ -22,6 +22,56 @@ const cpf: string = '123.456.789.99' // Nota: variável const também é acessí
 
 console.log(cpf)
 
+// Arrow Function
+// Criando uma função padrão
+function somar (n1: number, n2: number) : number {
+	return n1 + n2
+ }
+ 
+ console.log(somar(2,2))
 
+// Atribuindo Função anônima atribuida à uma variável
+/* Como a função é anônima, para ela ser chamada, é necessário atribuila à uma variável, 
+   onde essa váriavel poderá ser usada para fazer a chamada da função.*/
+const soma = function(n1: number, n2: number) : number {
+	return n1 + n2
+}
 
+console.log(soma(2,2))
+
+// Arrow Function (Sempre é Anônima)
+
+// Retorno implicito
+const somarAB = (numA: number, numB: number) => numA + numB
+console.log(somarAB(2,2))
+
+// Retorno implicito
+const multiplicarAB = (numA: number, numB: number): number => numA*numB
+console.log(multiplicarAB(2,2))
+
+// Retorno explicito
+const subtrairAB = (numA: number, numB: number): number => {
+    return numA - numB
+}
+console.log(subtrairAB(2,2))
+
+// this
+console.log('')
+console.log("this")
+console.log('')
+// this
+function normalComThis() {
+	console.log(this) // Sem erro no Javascript
+}
+
+const normalComThisEspecial = normalComThis.bind({nome:'Ana'})
+normalComThisEspecial()
+
+// this ??? Nota: This varia com o escopo ou a ultima chamada que o "invocou"
+console.log(this)
+const arrowComThis = () => console.log(this) // Sem erro no Javascript
+arrowComThis()
+
+const arrowComThisEspecial = arrowComThis.bind({nome:'Ana'})
+arrowComThisEspecial()
 
