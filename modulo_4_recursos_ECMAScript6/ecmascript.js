@@ -46,14 +46,27 @@ console.log('');
 console.log("this");
 console.log('');
 // this
-function normalComThis() {
-    console.log(this); // Sem erro no Javascript
+// function normalComThis() {
+// 	console.log(this) // Sem erro no Javascript
+// }
+// const normalComThisEspecial = normalComThis.bind({nome:'Ana'})
+// normalComThisEspecial()
+// // this ??? Nota: This varia com o escopo ou a ultima chamada que o "invocou"
+// console.log(this)
+// const arrowComThis = () => console.log(this) // Sem erro no Javascript
+// arrowComThis()
+// const arrowComThisEspecial = arrowComThis.bind({nome:'Ana'})
+// arrowComThisEspecial()
+// Parâmetros padrão
+/* Note que é possível atribuir um valor padrão a parâmetros ainda em sua configuração.
+   Isso contudo não impede que em novas execuções novos parâmetros não possam ser passados para função. */
+function contagemRegressiva(inicio = 5, fim = 0) {
+    console.log(inicio);
+    while (inicio > fim) {
+        inicio--;
+        console.log(inicio);
+    }
+    console.log("Fim!");
 }
-const normalComThisEspecial = normalComThis.bind({ nome: 'Ana' });
-normalComThisEspecial();
-// this ??? Nota: This varia com o escopo ou a ultima chamada que o "invocou"
-console.log(this);
-const arrowComThis = () => console.log(this); // Sem erro no Javascript
-arrowComThis();
-const arrowComThisEspecial = arrowComThis.bind({ nome: 'Ana' });
-arrowComThisEspecial();
+contagemRegressiva();
+contagemRegressiva(3);
