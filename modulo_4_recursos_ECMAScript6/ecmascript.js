@@ -84,3 +84,4 @@ const numeros = retornarArray(1, 2, 3, 4, 5, 6, 345, 623);
 console.log(numeros);
 console.log(retornarArray(...numbers));
 // -----------------------------------------------
+//# sourceMappingURL=ecmascript.js.map

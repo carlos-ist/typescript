@@ -30,3 +30,4 @@ console.log(nota1, nota2, nota3);
 const cientista = { primeiroNome: 'Will', experiencia: 12 };
 const { primeiroNome, experiencia } = cientista;
 console.log(primeiroNome, experiencia);
+//# sourceMappingURL=desafio.js.map
