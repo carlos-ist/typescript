@@ -130,6 +130,13 @@ Array(20).fill(0).forEach(()=>carro1.frear())
 console.log("Velocidade Atual: " + carro1.frear())
 
 class Ferrari extends Carro {
+    /* Obrigatório declarar o constructor da classe Pai no caso abaixo, {marca} será definido por default "Ferrari"
+    modelo e velocidadeMaxima serão chamados quando o objeto for instanciado, conforme o que foi definido nos 
+    argumentos do constructor para a subclasse Ferrari*/
+    constructor(modelo: string, velocidadeMaxima: number){
+        super('Ferrari', modelo, velocidadeMaxima)
+
+    }
 
     public acelerar(): number {
         return this.alterarVelocidade(20)
@@ -140,11 +147,53 @@ class Ferrari extends Carro {
     }
 }
 
-const f40 = new Ferrari("Ferrari", "F40", 324)
+const f40 = new Ferrari("F40", 324)
 console.log(`Marca: ${f40.marca} Modelo: ${f40.modelo}`)
 console.log("Velocidade aumentada em " + f40.acelerar())
 console.log("Velocidade reduzida em " + f40.frear())
 console.log("Velocidade Atual: " + f40.getVelocidadeAtual())
+
+console.log('')
+
+// Getters & Setters
+class Pessoa {
+
+    /* Convencionalmente, o underline antes de um atributo indica
+    que o mesmo possui modificador de acesso "private" */
+    private _idade: number = 0
+
+    get idade(): number {
+        return this._idade
+    }
+
+    set idade(valor: number){
+        if(valor >= 0 && valor <= 120){
+            this._idade = valor
+        } else {
+            console.log("Valor: "+ valor + ", idade inválida, tente novamente.")
+        }
+    }
+}
+
+const pessoa1 = new Pessoa
+pessoa1.idade = 10
+console.log(Pessoa)
+console.log(pessoa1)
+console.log(pessoa1.idade)
+
+
+pessoa1.idade = -3
+console.log(pessoa1.idade)
+
+
+
+
+
+
+
+
+
+
 
 
 
