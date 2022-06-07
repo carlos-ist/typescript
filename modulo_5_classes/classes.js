@@ -80,10 +80,26 @@ class Carro {
     frear() {
         return this.alterarVelocidade(-5);
     }
+    getVelocidadeAtual() {
+        return this.velocidadeAtual;
+    }
 }
 const carro1 = new Carro('ford', 'ka', 185);
 Array(50).fill(0).forEach(() => carro1.acelerar());
 console.log("Velocidade Atual: " + carro1.acelerar());
 Array(20).fill(0).forEach(() => carro1.frear());
 console.log("Velocidade Atual: " + carro1.frear());
+class Ferrari extends Carro {
+    acelerar() {
+        return this.alterarVelocidade(20);
+    }
+    frear() {
+        return this.alterarVelocidade(-15);
+    }
+}
+const f40 = new Ferrari("Ferrari", "F40", 324);
+console.log(`Marca: ${f40.marca} Modelo: ${f40.modelo}`);
+console.log("Velocidade aumentada em " + f40.acelerar());
+console.log("Velocidade reduzida em " + f40.frear());
+console.log("Velocidade Atual: " + f40.getVelocidadeAtual());
 //# sourceMappingURL=classes.js.map
