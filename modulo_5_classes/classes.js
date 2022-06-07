@@ -39,10 +39,51 @@ class Produto {
         this.nome = nome;
         this.preco = preco;
         this.desconto = desconto;
+        this.precoComDesconto = () => (this.preco - (this.desconto * this.preco)).toFixed(2);
+    }
+    // Criar método precoComDesconto
+    // Quais são os parâmetros e o retorno?
+    // Alterar método resumo para mostrar o preço com desconto
+    resumo() {
+        return `Produto: "${this.nome}" custa R$${this.precoComDesconto()}, ${this.desconto * 100}% Off`;
     }
 }
-let manteiga = new Produto("Qualy", 6);
-console.log(manteiga);
-let geladeira = new Produto("Brastemp", 3000, (3000 * 0.1));
-console.log(geladeira);
+const manteiga = new Produto("Margarina Qualy", 6);
+console.log(manteiga.resumo());
+console.log('');
+const geladeira = new Produto("Brastemp", 3000, 0.1);
+console.log(geladeira.resumo());
+console.log(geladeira.precoComDesconto());
+console.log('');
+class Carro {
+    constructor(marca, modelo, velocidadeMaxima = 200) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.velocidadeMaxima = velocidadeMaxima;
+        this.velocidadeAtual = 0;
+    }
+    alterarVelocidade(delta) {
+        const novaVelocidade = this.velocidadeAtual + delta;
+        const velocidadeValida = novaVelocidade >= 0
+            && novaVelocidade <= this.velocidadeMaxima;
+        if (velocidadeValida) {
+            this.velocidadeAtual = novaVelocidade;
+        }
+        else {
+            this.velocidadeAtual = delta > 0 ? this.velocidadeMaxima : 0;
+        }
+        return this.velocidadeAtual;
+    }
+    acelerar() {
+        return this.alterarVelocidade(5);
+    }
+    frear() {
+        return this.alterarVelocidade(-5);
+    }
+}
+const carro1 = new Carro('ford', 'ka', 185);
+Array(50).fill(0).forEach(() => carro1.acelerar());
+console.log("Velocidade Atual: " + carro1.acelerar());
+Array(20).fill(0).forEach(() => carro1.frear());
+console.log("Velocidade Atual: " + carro1.frear());
 //# sourceMappingURL=classes.js.map

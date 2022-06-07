@@ -59,13 +59,68 @@ class Produto {
         public preco: number,
         public desconto: number = 0,
     ) {}
+
+    // Criar método precoComDesconto
+    // Quais são os parâmetros e o retorno?
+    // Alterar método resumo para mostrar o preço com desconto
+
+    public resumo(): string {
+        return `Produto: "${this.nome}" custa R$${this.precoComDesconto()}, ${this.desconto*100}% Off`
+    }
+
+    public precoComDesconto = () => (this.preco - (this.desconto * this.preco)).toFixed(2)
+
 }
 
-let manteiga = new Produto("Qualy", 6)
-console.log(manteiga)
+const manteiga = new Produto("Margarina Qualy", 6)
+console.log(manteiga.resumo())
+console.log('')
 
-let geladeira = new Produto("Brastemp", 3000, (3000*0.1))
-console.log(geladeira)
+const geladeira = new Produto("Brastemp", 3000, 0.1)
+console.log(geladeira.resumo())
+console.log(geladeira.precoComDesconto())
+
+console.log('')
 
 
+class Carro {
+    private velocidadeAtual: number = 0
 
+    constructor(
+        public marca: string,
+        public modelo: string,
+        private velocidadeMaxima: number = 200
+        ){}
+    
+    private alterarVelocidade(delta: number): number {
+       
+        const novaVelocidade = this.velocidadeAtual + delta
+        const velocidadeValida = novaVelocidade >= 0
+            && novaVelocidade <= this.velocidadeMaxima
+    
+        if(velocidadeValida) {
+            this.velocidadeAtual = novaVelocidade
+        } else {
+            this.velocidadeAtual = delta > 0 ? this.velocidadeMaxima : 0
+        }
+
+        return this.velocidadeAtual
+    }
+
+    public acelerar(): number {
+        return this.alterarVelocidade(5)
+    }
+
+    public frear(): number {
+        return this.alterarVelocidade(-5)
+    }
+
+}
+
+const carro1 = new Carro('ford', 'ka', 185)
+
+Array(50).fill(0).forEach(()=>carro1.acelerar())
+console.log("Velocidade Atual: " + carro1.acelerar())
+
+Array(20).fill(0).forEach(()=>carro1.frear())
+console.log("Velocidade Atual: " + carro1.frear())
