@@ -135,4 +135,14 @@ console.log(pessoa1);
 console.log(pessoa1.idade);
 pessoa1.idade = -3;
 console.log(pessoa1.idade);
+// Atributos e métodos estáticos
+class Matematica {
+    static areaCirc(raio) {
+        return this.PI * raio * raio;
+    }
+}
+Matematica.PI = 3.1416;
+// const m1 = new Matematica()
+// console.log(m1.areaCirc(4))
+console.log(Matematica.areaCirc(4));
 //# sourceMappingURL=classes.js.map
