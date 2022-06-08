@@ -213,6 +213,9 @@ abstract class Calculo {
 class Soma extends Calculo {
     executar(...numeros: number[]): void {
         this.resultado = numeros.reduce((t,a) => t + a)
+        /* Reduce - é uma função que itera sobre todos os elementos do array.
+         * Neste caso o 't' é o parâmetro acumulador e 'a' é cada elemento do array.
+         */
     }
 }
 
@@ -231,9 +234,22 @@ c1.executar(2,3,4,5)
 console.log(c1.getResultado())
 
 console.log('')
+// Construtor Privado e Singleton
+class Unico {
+    private static instance: Unico = new Unico
+    
+    private constructor() {}
+    
+    static getInstance(): Unico {
+        return Unico.instance
+    }
+    
+    agora() {
+        return new Date
+    }
+}
 
-
-
+console.log(Unico.getInstance().agora())
 
 
 

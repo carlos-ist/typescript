@@ -158,6 +158,9 @@ class Calculo {
 class Soma extends Calculo {
     executar(...numeros) {
         this.resultado = numeros.reduce((t, a) => t + a);
+        /* Reduce - é uma função que itera sobre todos os elementos do array.
+         * Neste caso o 't' é o parâmetro acumulador e 'a' é cada elemento do array.
+         */
     }
 }
 class multiplicacao extends Calculo {
@@ -172,4 +175,16 @@ c1 = new multiplicacao();
 c1.executar(2, 3, 4, 5);
 console.log(c1.getResultado());
 console.log('');
+// Construtor Privado e Singleton
+class Unico {
+    constructor() { }
+    static getInstance() {
+        return Unico.instance;
+    }
+    agora() {
+        return new Date;
+    }
+}
+Unico.instance = new Unico;
+console.log(Unico.getInstance().agora());
 //# sourceMappingURL=classes.js.map
