@@ -10,7 +10,7 @@ console.log('From ./modulo_6_modulos_e_namespaces_em_typescript/namespaces/names
 //     }
 // }
 
-const PI = 2.99
+//const PI = 2.99
 
 console.log("Área Circunferência: " + Geometria.Area.circunferencia(10))
 console.log("Área Retângulo: " + Geometria.Area.retangulo(10,20))
