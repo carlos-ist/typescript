@@ -7,3 +7,4 @@ console.log('')
 console.log("Módulo Carregado...")
 console.log(areaRetangulo(7,8))
 console.log(areaCircunferencia(2))
+
