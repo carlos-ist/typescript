@@ -35,7 +35,7 @@ abstract class Objeto2D {
         protected altura: number = 0
     ){} //Não é necessário atribuir o argumento ao atributo.
 
-    abstract area ():number
+    protected abstract area ():number
 }
 
 class Retangulo extends Objeto2D {
@@ -44,7 +44,7 @@ class Retangulo extends Objeto2D {
         super(base, altura)
     }
 
-    public area = () => this.base * this.altura
+    area = () => this.base * this.altura
 
 }
 
@@ -57,15 +57,13 @@ console.log('')
 class Estagiario {
     constructor(
         private _primeiroNome:string=''
-        ){
-        this._primeiroNome = _primeiroNome
-    }
+        ){}
 
     get primeiroNome():string {
         return this._primeiroNome
     }
 
-    set primeiroNome (nome:string) {
+    set primeiroNome(nome:string) {
         if (nome.length >= 3) {
             this._primeiroNome = nome
         } else {

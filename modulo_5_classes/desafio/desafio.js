@@ -45,7 +45,6 @@ console.log('');
 class Estagiario {
     constructor(_primeiroNome = '') {
         this._primeiroNome = _primeiroNome;
-        this._primeiroNome = _primeiroNome;
     }
     get primeiroNome() {
         return this._primeiroNome;
