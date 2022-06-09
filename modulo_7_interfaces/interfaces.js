@@ -43,4 +43,21 @@ potencia = function (base, exp) {
     // Array(exp).fill(base).reduce((t, a) => t * a)
     return Math.pow(base, exp);
 };
+console.log(potencia(3, 10));
+class RealA {
+    a() { }
+}
+class RealAB {
+    a() { }
+    b() { }
+}
+class RealABC {
+    a() { }
+    b() { }
+    c() { }
+}
+class AbstrataABD {
+    a() { }
+    b() { }
+}
 //# sourceMappingURL=interfaces.js.map
