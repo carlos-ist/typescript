@@ -7,6 +7,7 @@ function saudarComOla(pessoa) {
 function mudarNome(pessoa) {
     pessoa.nome = 'Joana';
 }
+// Object Literals
 const pessoa = {
     nome: 'João',
     idade: 27,
@@ -19,4 +20,27 @@ saudarComOla(pessoa);
 mudarNome(pessoa);
 saudarComOla(pessoa);
 pessoa.saudar('Skywalker');
+// Usando Classes...
+class Cliente {
+    constructor() {
+        this.nome = '';
+        this.ultimaCompra = new Date;
+    }
+    saudar(sobrenome) {
+        console.log('Olá, meu nome é '
+            + this.nome + ' ' + sobrenome);
+    }
+}
+const meuCliente = new Cliente;
+meuCliente.nome = 'Han';
+saudarComOla(meuCliente);
+meuCliente.saudar('Solo');
+console.log(meuCliente.ultimaCompra);
+let potencia;
+potencia = function (base, exp) {
+    // Math.pow (3,10)
+    // 3 ** 10
+    // Array(exp).fill(base).reduce((t, a) => t * a)
+    return Math.pow(base, exp);
+};
 //# sourceMappingURL=interfaces.js.map
