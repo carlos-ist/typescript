@@ -46,12 +46,24 @@ class OperacaoBinaria {
         this.operando1 = operando1;
         this.operando2 = operando2;
     }
+}
+// console.log(new OperacaoBinaria('Bom', 'dia').executar())
+// console.log(new OperacaoBinaria(3, 7).executar())
+// console.log(new OperacaoBinaria(3, 'Opa').executar())
+// console.log(new OperacaoBinaria({}, {}).executar())
+class SomaBinaria extends OperacaoBinaria {
     executar() {
         return this.operando1 + this.operando2;
     }
 }
-console.log(new OperacaoBinaria('Bom', 'dia').executar());
-console.log(new OperacaoBinaria(3, 7).executar());
-console.log(new OperacaoBinaria(3, 'Opa').executar());
-console.log(new OperacaoBinaria({}, {}).executar());
+console.log(new SomaBinaria(3, 4).executar());
+console.log(new SomaBinaria(30, 434).executar());
+// Desafio Classe Fila
+// Atributo: fila(Array)
+// Métodos: entrar, próximo imprimir
+class fila {
+    constructor(...args) {
+        this.fila = args;
+    }
+}
 //# sourceMappingURL=generics.js.map

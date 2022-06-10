@@ -57,23 +57,39 @@ console.log(chamarEcho<string>('Alguma coisa'))
 
 
 // Classes com Generics
-class OperacaoBinaria{
+abstract class OperacaoBinaria<T, R>{
     constructor(
-        public operando1: any,
-        public operando2: any 
+        public operando1: T,
+        public operando2: T 
         ){}
 
-    executar(){
+    abstract executar():T
+}
+
+// console.log(new OperacaoBinaria('Bom', 'dia').executar())
+// console.log(new OperacaoBinaria(3, 7).executar())
+// console.log(new OperacaoBinaria(3, 'Opa').executar())
+// console.log(new OperacaoBinaria({}, {}).executar())
+
+class SomaBinaria extends OperacaoBinaria <number,number>{
+    executar(): number {
         return this.operando1 + this.operando2
     }
 }
 
-console.log(new OperacaoBinaria('Bom', 'dia').executar())
-console.log(new OperacaoBinaria(3, 7).executar())
-console.log(new OperacaoBinaria(3, 'Opa').executar())
-console.log(new OperacaoBinaria({}, {}).executar())
+console.log(new SomaBinaria(3,4).executar())
+console.log(new SomaBinaria(30,434).executar())
 
+// Desafio Classe Fila
+// Atributo: fila(Array)
+// Métodos: entrar, próximo imprimir
 
+class fila <T> {
 
+    private fila: Array<T>
 
+    constructor(...args: T[]){
+        this.fila=args
+    }
 
+}
