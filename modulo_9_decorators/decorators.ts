@@ -6,17 +6,6 @@ Ainda que se instancie objetos, sua execução ocorre na chamada/declaração da
 E não durante a instanciação dos objetos.
 */
 
-//@logarClasse
-//@logarClasseSe(true) //factory - retorna um decorator
-@decorator({a: 'Teste', b: 123}) //Factory que retorna um decorator, imprimi teste ao receber a classe.
-class Eletrodomestico {
-    constructor(){
-        console.log('novo...')
-    }
-}
-
-//console.log(typeof Eletrodomestico) // apenas comprovando que uma classe em javascript é (retorna) uma function
-
 function logarClasse(constructor:Function){
     console.log(constructor)
 }
@@ -33,6 +22,37 @@ function decorator(obj: {a: string, b?: number}){
         console.log(obj.a + ' ' + obj.b)
     }
 }
+
+//@logarClasse
+//@logarClasseSe(true) //factory - retorna um decorator
+//@decorator({a: 'Teste', b: 123}) //Factory que retorna um decorator, imprimi teste ao receber a classe.
+@logarObjeto
+class Eletrodomestico {
+    constructor(){
+        console.log('novo...')
+    }
+}
+
+//console.log(typeof Eletrodomestico) // apenas comprovando que uma classe em javascript é (retorna) uma function
+
+new Eletrodomestico();
+new Eletrodomestico();
+new Eletrodomestico();
+
+type Construtor = { new(...args: any[]): {} }
+
+function logarObjeto(Construtor: Construtor){
+    console.log('Carregado...')
+    return class extends Construtor {
+        constructor(...args:any[]){
+            console.log('Antes')
+            super(...args)
+            console.log('Depois')
+        }
+    }
+}
+
+
 
 
 
