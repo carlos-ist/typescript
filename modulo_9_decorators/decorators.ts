@@ -23,21 +23,6 @@ function decorator(obj: {a: string, b?: number}){
     }
 }
 
-//@logarClasse
-//@logarClasseSe(true) //factory - retorna um decorator
-//@decorator({a: 'Teste', b: 123}) //Factory que retorna um decorator, imprimi teste ao receber a classe.
-@logarObjeto
-class Eletrodomestico {
-    constructor(){
-        console.log('novo...')
-    }
-}
-
-//console.log(typeof Eletrodomestico) // apenas comprovando que uma classe em javascript é (retorna) uma function
-
-new Eletrodomestico();
-new Eletrodomestico();
-new Eletrodomestico();
 
 type Construtor = { new(...args: any[]): {} }
 
@@ -52,10 +37,28 @@ function logarObjeto(Construtor: Construtor){
     }
 }
 
+interface Eletrodomestico {
+    imprimir?(): void
+}
 
+@logarClasse
+//@logarClasseSe(true) //factory - retorna um decorator
+//@decorator({a: 'Teste', b: 123}) //Factory que retorna um decorator, imprimi teste ao receber a classe.
+//@logarObjeto
+@imprimivel
+class Eletrodomestico {
+    constructor(){
+        console.log('novo...')
+    }
+}
 
+function imprimivel (construtor: Function) {
+    construtor.prototype.imprimir = function () {
+        console.log(this+"ooo")
+    }    
+}
 
-
-
+const eletro = new Eletrodomestico()
+eletro.imprimir && eletro.imprimir()
 
 
