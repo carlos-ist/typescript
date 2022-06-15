@@ -62,3 +62,7 @@ const eletro = new Eletrodomestico()
 eletro.imprimir && eletro.imprimir()
 
 
+
+
+
+
